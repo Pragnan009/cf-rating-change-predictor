@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CF Rating Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // Leave this blank to call the API on the same origin (works when this
+    // page is served by app/main.py itself, e.g. on Render/Railway).
+    //
+    // If you're serving this page separately from GitHub Pages, set this to
+    // your deployed backend's URL, e.g.:
+    //   window.CF_API_BASE = "https://cf-rating-predictor.onrender.com";
+    window.CF_API_BASE = "";
+  </script>
+</head>
+<body>
+  <main>
+    <h1>CF Rating Predictor</h1>
+    <p class="subtitle">Predict your Codeforces rating change — live, mid-contest, or as a what-if.</p>
+
+    <form id="predict-form">
+      <label>
+        Handle
+        <input type="text" id="handle" placeholder="tourist" required />
+      </label>
+      <label>
+        Contest ID
+        <input type="number" id="contest" placeholder="1900" required />
+      </label>
+      <label>
+        Rank <span class="optional">(optional — auto-detected live if left blank)</span>
+        <input type="number" id="rank" placeholder="e.g. 250" />
+      </label>
+      <button type="submit">Predict</button>
+    </form>
+
+    <div id="status"></div>
+    <section id="result" class="hidden"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
